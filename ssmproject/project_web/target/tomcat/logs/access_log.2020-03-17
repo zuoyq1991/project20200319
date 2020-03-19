@@ -1,0 +1,16 @@
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:17 +0800] "GET /project_web HTTP/1.1" 302 - http-bio-8888-exec-1 0
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:18 +0800] "GET /project_web/ HTTP/1.1" 200 105 http-bio-8888-exec-2 545
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/product/findAll.do HTTP/1.1" 200 23652 http-bio-8888-exec-3 812
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-markdown/locale/bootstrap-markdown.zh.js HTTP/1.1" 200 927 http-bio-8888-exec-5 4
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-markdown/js/bootstrap-markdown.js HTTP/1.1" 200 16384 http-bio-8888-exec-4 19
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-slider/bootstrap-slider.js HTTP/1.1" 200 16384 http-bio-8888-exec-9 4
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.js HTTP/1.1" 200 16384 http-bio-8888-exec-10 2
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-datetimepicker/locales/bootstrap-datetimepicker.zh-CN.js HTTP/1.1" 200 813 http-bio-8888-exec-1 9
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-markdown/js/to-markdown.js HTTP/1.1" 200 5891 http-bio-8888-exec-8 4
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:21 +0800] "GET /project_web/plugins/bootstrap-markdown/js/markdown.js HTTP/1.1" 200 16384 http-bio-8888-exec-7 1
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:46 +0800] "GET /project_web/pages/product-add.jsp HTTP/1.1" 200 14048 http-bio-8888-exec-4 96
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:21:46 +0800] "GET /project_web/plugins/bootstrap-datetimepicker/bootstrap-datetimepicker.min.js HTTP/1.1" 200 39213 http-bio-8888-exec-4 2
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:22:11 +0800] "GET /project_web/pages/main.jsp HTTP/1.1" 200 13006 http-bio-8888-exec-4 67
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:22:12 +0800] "GET /project_web/img/center.jpg HTTP/1.1" 404 1003 http-bio-8888-exec-4 5
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:22:17 +0800] "GET /project_web/pages/main.jsp HTTP/1.1" 200 13006 http-bio-8888-exec-4 3
+0:0:0:0:0:0:0:1 - - [17/Mar/2020:17:22:17 +0800] "GET /project_web/img/center.jpg HTTP/1.1" 404 1003 http-bio-8888-exec-4 1
