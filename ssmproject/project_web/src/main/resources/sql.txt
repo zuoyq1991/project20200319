@@ -1,0 +1,179 @@
+-- ?????
+CREATE DATABASE ssm;
+USE ssm;
+-- ?????
+CREATE TABLE product(
+			 id INT PRIMARY KEY AUTO_INCREMENT, -- ??
+		     productNum VARCHAR(50) NOT NULL UNIQUE, -- ????
+		     productName VARCHAR(50) NOT NULL UNIQUE, -- ????
+		     cityName VARCHAR(50),	-- ????
+		     DepartureTime DATE,	-- ????
+		     productPrice DOUBLE,	-- ????
+		     productdesc VARCHAR(500), -- ????
+		     productStatus INT);	-- ??(0?? 1??)
+
+
+SELECT * FROM product;
+
+-- ??????
+INSERT INTO product(id,productNum,productName,cityName,DepartureTime,productPrice,productdesc,productStatus) VALUE (NULL,'1001','?????','??','2018-10-1 10:00','200','???????','1');
+INSERT INTO product(id,productNum,productName,cityName,DepartureTime,productPrice,productdesc,productStatus) VALUE (NULL,'1002','?????','??','2019-10-1 10:00','2000','???????','0');
+INSERT INTO product(id,productNum,productName,cityName,DepartureTime,productPrice,productdesc,productStatus) VALUE (NULL,'1003','?????','??','2019-11-1 10:00','20000','???????','0');
+INSERT INTO product(id,productNum,productName,cityName,DepartureTime,productPrice,productdesc,productStatus) VALUE (NULL,'1004','?????','??','2019-12-1 10:00','200000','???????','1');
+
+-- ???
+DROP TABLE member;
+CREATE TABLE member(
+		id INT PRIMARY KEY AUTO_INCREMENT,
+                    NAME VARCHAR(20), -- ??
+                    nickname VARCHAR(20), -- ??
+                    phoneNum VARCHAR(20), -- ????
+                    email VARCHAR(20));  -- ??
+
+
+INSERT INTO MEMBER (id, NAME, nickname, phonenum, email)
+VALUES (NULL, '??', '??', '18888888888', 'zs@163.com');
+
+INSERT INTO MEMBER (id, NAME, nickname, phonenum, email)
+VALUES (NULL, '??', '??', '16666666666', 'ls@163.com');
+
+INSERT INTO MEMBER (id, NAME, nickname, phonenum, email)
+VALUES (NULL, '??', '??', '19999999999', 'ww@163.com');
+
+SELECT * FROM member;
+
+
+-- ??
+CREATE TABLE orders(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  orderNum VARCHAR(20) NOT NULL UNIQUE, -- ????
+  orderTime DATE, -- ????
+  peopleCount INT, -- ????
+  orderDesc VARCHAR(500), -- ????
+  payType INT, -- ????( 0 ???  1?? 2??)
+  orderStatus INT, -- ????(0??? 1??)
+  productId INT, -- ??id ??
+  memberId INT,   -- ??(?????)
+  FOREIGN KEY (productId) REFERENCES product(id),
+  FOREIGN KEY (memberId) REFERENCES member(id)
+);
+
+INSERT INTO orders (id, ordernum, ordertime, peoplecount, orderdesc, paytype, orderstatus, productId, memberId)
+VALUES (NULL, '12345', '2018-10-01', 1, '??VIP??', 0, 0,1,1 );
+
+INSERT INTO orders (id, ordernum, ordertime, peoplecount, orderdesc, paytype, orderstatus, productId, memberId)
+VALUES (NULL, '12344', '2018-11-01', 4, '?????', 1, 1,2,2 );
+
+INSERT INTO orders (id, ordernum, ordertime, peoplecount, orderdesc, paytype, orderstatus, productId, memberId)
+VALUES (NULL, '12343', '2018-9-01', 2, '??????', 2, 0,3,3 );
+
+INSERT INTO orders (id, ordernum, ordertime, peoplecount, orderdesc, paytype, orderstatus, productId, memberId)
+VALUES (NULL, '12342', '2018-11-6', 9, '?????', 2, 1,4,2 );
+
+INSERT INTO orders (id, ordernum, ordertime, peoplecount, orderdesc, paytype, orderstatus, productId, memberId)
+VALUES (NULL, '12341', '2018-5-20', 5, '?????', 0, 0,5,1 );
+
+SELECT * FROM orders;
+
+-- ??
+DROP TABLE traveller;
+CREATE TABLE traveller(
+  id INT PRIMARY KEY AUTO_INCREMENT,
+  NAME VARCHAR(20),  -- ??
+  sex VARCHAR(20),    -- ??
+  phoneNum VARCHAR(20), -- ????
+  credentialsType INT,  -- (???? 0??? 1?? 2???)
+  credentialsNum VARCHAR(50), -- ???
+  travellerType INT  -- ????(?? ) 0 ?? 1??
+)
+INSERT INTO TRAVELLER (id, NAME, sex, phonenum, credentialstype, credentialsnum, travellertype)
+VALUES (NULL, '??', '?', '13333333333', 0, '123456789009876543', 0);
+INSERT INTO TRAVELLER (id, NAME, sex, phonenum, credentialstype, credentialsnum, travellertype)
+VALUES (NULL, '???', '?', '15555555555', 0, '987654321123456789', 1);
+
+SELECT * FROM traveller;
+
+-- ????????
+DROP TABLE order_traveller;
+CREATE TABLE order_traveller(
+  orderId INT,
+  travellerId INT,
+  FOREIGN KEY (orderId) REFERENCES orders(id),
+  FOREIGN KEY (travellerId) REFERENCES traveller(id)
+)
+
+INSERT INTO ORDER_TRAVELLER (orderid, travellerid)
+VALUES ('1', '1');
+INSERT INTO ORDER_TRAVELLER (orderid, travellerid)
+VALUES ('1', '2');
+INSERT INTO ORDER_TRAVELLER (orderid, travellerid)
+VALUES ('2', '2');
+INSERT INTO ORDER_TRAVELLER (orderid, travellerid)
+VALUES ('3', '2');
+INSERT INTO ORDER_TRAVELLER (orderid, travellerid)
+VALUES ('4', '1');
+
+SELECT * FROM orders;
+
+-- ???
+CREATE TABLE users(
+id INT PRIMARY KEY AUTO_INCREMENT,
+email VARCHAR(50) UNIQUE NOT NULL, -- ??
+username VARCHAR(50),-- ???
+PASSWORD VARCHAR(50),-- ??
+phoneNum VARCHAR(20),-- ??
+STATUS INT -- ??0??? 1??
+)
+
+SELECT * FROM users;
+
+-- ???
+CREATE TABLE role(
+id INT PRIMARY KEY AUTO_INCREMENT,
+roleName VARCHAR(50) ,-- ???
+roleDesc VARCHAR(50) -- ????
+)
+
+
+-- ???????
+CREATE TABLE users_role(
+userId INT,
+roleId INT,
+FOREIGN KEY (userId) REFERENCES users(id),
+FOREIGN KEY (roleId) REFERENCES role(id)
+)
+
+-- ?????
+CREATE TABLE permission(
+id INT PRIMARY KEY AUTO_INCREMENT,
+permissionName VARCHAR(50) , -- ???
+url VARCHAR(50) -- ????
+)
+
+-- ???????
+CREATE TABLE role_permission(
+permissionId INT,
+roleId INT,
+FOREIGN KEY (permissionId) REFERENCES permission(id),
+FOREIGN KEY (roleId) REFERENCES role(id)
+)
+
+--??????????
+
+INSERT INTO role VALUES(NULL,'user','??');
+INSERT INTO role VALUES(NULL,'admin','??');
+INSERT INTO role VALUES(NULL,'manager','??');
+
+INSERT INTO users VALUES(NULL,'tom@qq.com','tom','123','18888888888',1);
+INSERT INTO users VALUES(NULL,'jin@qq.com','jin','123','18811111111',1);
+INSERT INTO users VALUES(NULL,'xin@qq.com','xin','123','18822222222',1);
+INSERT INTO users VALUES(NULL,'li@qq.com','li','123','18833333333',1);
+INSERT INTO users VALUES(NULL,'zhangsan@qq.com','zhangsan','123','18844444444',0);
+
+INSERT INTO users_role VALUES(1,1);
+INSERT INTO users_role VALUES(1,2);
+INSERT INTO users_role VALUES(2,2);
+INSERT INTO users_role VALUES(3,2);
+INSERT INTO users_role VALUES(4,2);
+INSERT INTO users_role VALUES(4,2);
+INSERT INTO users_role VALUES(5,3);
